@@ -1,0 +1,231 @@
+/* ─────────────────────────────────────────────
+   Custom Scrollbar — adapts to light / dark
+───────────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; border: 1px solid transparent; background-clip: content-box; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; border: 1px solid transparent; background-clip: content-box; }
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+
+/* ─────────────────────────────────────────────
+   Leaflet Popup — Light mode
+───────────────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+    background: #ffffff;
+    color: #1e293b;                /* slate-800 */
+    border: 1px solid #e2e8f0;    /* slate-200 */
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -5px rgba(0,0,0,0.08);
+    padding: 0;
+}
+.leaflet-popup-tip-container { margin-top: -1px; }
+.leaflet-popup-tip { background: #ffffff; }
+.leaflet-container a.leaflet-popup-close-button { color: #64748b; }
+.leaflet-container a.leaflet-popup-close-button:hover { color: #1e293b; }
+
+/* Popup — Dark mode */
+.dark .leaflet-popup-content-wrapper {
+    background: #1f2937;           /* gray-800 */
+    color: #f3f4f6;                /* gray-100 */
+    border: 1px solid #374151;    /* gray-700 */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+}
+.dark .leaflet-popup-tip { background: #1f2937; }
+.dark .leaflet-container a.leaflet-popup-close-button { color: #9ca3af; }
+.dark .leaflet-container a.leaflet-popup-close-button:hover { color: #f9fafb; }
+
+/* Popup content text colours in dark mode */
+.dark .leaflet-popup-content-wrapper .text-slate-800 { color: #f3f4f6 !important; }
+.dark .leaflet-popup-content-wrapper .text-slate-600 { color: #d1d5db !important; }
+.dark .leaflet-popup-content-wrapper .text-slate-500 { color: #9ca3af !important; }
+.dark .leaflet-popup-content-wrapper .text-gray-800  { color: #f3f4f6 !important; }
+.dark .leaflet-popup-content-wrapper .text-gray-600  { color: #d1d5db !important; }
+.dark .leaflet-popup-content-wrapper .bg-slate-50    { background: #111827 !important; }
+.dark .leaflet-popup-content-wrapper .bg-slate-200   { background: #374151 !important; }
+.dark .leaflet-popup-content-wrapper .border-slate-200 { border-color: #374151 !important; }
+.dark .leaflet-popup-content-wrapper .bg-blue-50     { background: #1e3a5f !important; }
+.dark .leaflet-popup-content-wrapper .text-blue-700  { color: #93c5fd !important; }
+.dark .leaflet-popup-content-wrapper .border-blue-100{ border-color: #1e40af !important; }
+
+
+/* ─────────────────────────────────────────────
+   Map click popup (start/end selector)
+───────────────────────────────────────────── */
+.dark .leaflet-popup-content-wrapper .text-gray-800 { color: #f9fafb !important; }
+
+
+/* ─────────────────────────────────────────────
+   Custom Map Markers
+───────────────────────────────────────────── */
+.custom-div-icon { background: transparent; border: none; }
+.marker-pin {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.15s;
+}
+.marker-pin:hover { transform: scale(1.15); }
+.marker-green  { background-color: #10b981; }
+.marker-red    { background-color: #ef4444; }
+.marker-yellow { background-color: #eab308; }
+.marker-orange { background-color: #f97316; }
+.marker-gold   { background-color: #f59e0b; border-color: #fde68a; font-size: 10px; }
+.marker-blue   { background-color: #3b82f6; }
+
+
+/* ─────────────────────────────────────────────
+   Autocomplete Suggestions — Light mode
+───────────────────────────────────────────── */
+.suggestion-item {
+    padding: 8px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #e2e8f0;   /* slate-200 */
+    transition: background 0.15s;
+    font-size: 0.875rem;
+    color: #1e293b;                      /* slate-800 */
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.suggestion-item:last-child { border-bottom: none; }
+.suggestion-item:hover { background: #f1f5f9; }  /* slate-100 */
+
+.suggestion-item .city-name  { color: #1e293b; font-weight: 600; }   /* slate-800 */
+.suggestion-item .state-name { color: #64748b; font-size: 0.72rem; } /* slate-500 */
+
+/* Autocomplete — Dark mode */
+.dark .suggestion-item {
+    border-bottom-color: #374151;         /* gray-700 */
+    color: #f3f4f6;
+}
+.dark .suggestion-item:hover { background: #374151; }
+.dark .suggestion-item .city-name  { color: #f9fafb; }
+.dark .suggestion-item .state-name { color: #9ca3af; }
+
+
+/* ─────────────────────────────────────────────
+   Map click popup buttons — force colours both modes
+───────────────────────────────────────────── */
+.leaflet-popup-content button { outline: none; }
+
+
+/* ─────────────────────────────────────────────
+   Input / Select — ensure visible placeholder in both modes
+───────────────────────────────────────────── */
+input::placeholder { color: #94a3b8; }        /* slate-400 */
+.dark input::placeholder { color: #4b5563; }  /* gray-600 */
+
+select option {
+    background: #ffffff;
+    color: #1e293b;
+}
+.dark select option {
+    background: #111827;   /* gray-900 */
+    color: #f3f4f6;
+}
+
+
+/* ─────────────────────────────────────────────
+   Range slider — consistent in both modes
+───────────────────────────────────────────── */
+input[type="range"] { cursor: pointer; }
+
+
+/* ─────────────────────────────────────────────
+   Animations & Transitions
+   ───────────────────────────────────────────── */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#stopsList > div {
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+/* ─────────────────────────────────────────────
+   Map controls repositioning
+   ───────────────────────────────────────────── */
+.leaflet-top.leaflet-left { top: 10px; left: 10px; }
+.leaflet-bar { border: none !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 12px !important; overflow: hidden; }
+.leaflet-bar a { background: #fff !important; color: #64748b !important; border: 1px solid #e2e8f0 !important; width: 36px !important; height: 36px !important; line-height: 36px !important; transition: all 0.2s; }
+.leaflet-bar a:hover { background: #f8fafc !important; color: #0f172a !important; }
+.dark .leaflet-bar a { background: #1f2937 !important; color: #94a3b8 !important; border-color: #374151 !important; }
+.dark .leaflet-bar a:hover { background: #374151 !important; color: #f1f5f9 !important; }
+
+/* ─────────────────────────────────────────────
+   Print / PDF export — Total Manifest Overhaul
+───────────────────────────────────────────── */
+@media print {
+    /* RESET & STRIP UI */
+    * { transition: none !important; animation: none !important; box-shadow: none !important; }
+    nav, #themeToggle, #inputCard, #loadingOverlay, #copyTripBtn, .leaflet-control-container, footer, button { display: none !important; }
+
+    body, html { background: #fff !important; color: #000 !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    
+    /* OFFICIAL HEADER - LOGO & METADATA */
+    body::before {
+        content: "SPOTTER LOGISTICS: FUEL OPTIMIZATION MANIFEST\A Generated: " attr(data-date) "  |  Strategy: Max Savings  |  Route: Active Transit";
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: left;
+        padding: 20px 1cm;
+        border-bottom: 5px solid #000;
+        margin-bottom: 25px;
+        white-space: pre-wrap;
+        line-height: 1.5;
+    }
+
+    main { display: flex !important; flex-direction: column !important; width: 100% !important; padding: 0 1cm !important; margin: 0 !important; }
+    
+    /* FORCE FULL WIDTH & REORDER */
+    .w-full.lg\:w-\[420px\] { display: contents !important; }
+    
+    #algoInsights { order: 1 !important; display: block !important; width: 100% !important; border: 2px solid #000 !important; margin-bottom: 10px !important; padding: 15px !important; background: #fff !important; position: static !important; }
+    #tripSummary { order: 2 !important; display: block !important; width: 100% !important; border: 2px solid #000 !important; margin-bottom: 25px !important; padding: 15px !important; background: #fff !important; page-break-inside: avoid; }
+    #map { order: 3 !important; display: block !important; height: 380px !important; width: 100% !important; border: 2px solid #000 !important; margin-bottom: 25px !important; page-break-inside: avoid; }
+    #stopsContainer { order: 4 !important; display: block !important; width: 100% !important; }
+
+    /* HIGH DENSITY 4-COLUMN STATS GRID */
+    #tripSummary .grid.grid-cols-2 {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    /* Professional Stats Styling */
+    .bg-slate-50, .bg-emerald-50\/50, .bg-red-50\/50, .bg-emerald-50, .bg-red-50 {
+        background: #fff !important; border: 1px solid #000 !important; padding: 8px !important;
+    }
+    
+    #tripSummary h2, #algoInsights h2 { font-size: 12px !important; font-weight: 900 !important; text-transform: uppercase !important; margin-bottom: 10px !important; letter-spacing: 0.1em; }
+
+    /* Data Values */
+    .text-lg { font-size: 16px !important; font-weight: 900 !important; color: #000 !important; }
+    .text-sm, .text-\[11px\], .text-\[9px\], .text-\[8px\] { font-size: 10px !important; font-weight: 700 !important; color: #555 !important; }
+
+    /* ITINERARY TABLE */
+    #stopsContainer header, #stopsContainer .flex-shrink-0 { display: none !important; }
+    #stopsList { display: block !important; width: 100% !important; border-top: 3px solid #000 !important; }
+    #stopsList > div {
+        display: flex !important; align-items: center !important; justify-content: space-between !important; border-bottom: 1px solid #000 !important; padding: 12px 0 !important; background: #fff !important; page-break-inside: avoid;
+    }
+
+    /* Force high-contrast text */
+    * { color: #000 !important; font-family: 'Inter', sans-serif !important; }
+    .text-emerald-600, .text-blue-600, .text-red-600 { font-weight: 900 !important; text-decoration: none !important; }
+
+    @page { margin: 0; size: A4 portrait; }
+}
