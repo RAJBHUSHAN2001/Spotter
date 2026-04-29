@@ -177,6 +177,26 @@ Building a platform that synchronizes **Large-Scale Data Analysis** (6,600+ stat
 
 ---
 
+## 🛡️ Project Robustness & Fail-Safe Architecture
+
+Spotter is engineered for **Zero-Downtime Reliability**. We have implemented a multi-layered fallback system to ensure the app works even if primary services are unavailable:
+
+1.  **Dual-Geocoding Engine:** If the primary OpenRouteService geocoder fails or hits rate limits, the system instantly and silently falls back to **Nominatim (OpenStreetMap)** to find coordinates.
+2.  **Hybrid Routing Logic:** If the premium ORS Routing API is unavailable, the backend automatically switches to the **OSRM Public API**. This ensures that the user *always* gets a route, even without an API key.
+3.  **OSRM Road Snapping:** Every start/end point is automatically "snapped" to the nearest drivable road. This prevents the "350m error" common in other routing apps when a user clicks a location that isn't directly on a street.
+
+---
+
+## ✅ First-Time Setup Checklist (Get Running in 60 Seconds)
+
+1.  **Environment:** Create and activate your `venv`.
+2.  **Requirements:** Run `pip install -r backend/requirements.txt`.
+3.  **Data:** Run `python manage.py load_stations`. (CRITICAL: This populates the 6,600 stations).
+4.  **Database:** Run `python manage.py migrate`.
+5.  **API Key (Optional):** Add `OPENROUTESERVICE_API_KEY` to `.env` for premium precision, or skip it and rely on our built-in OSRM/Nominatim fallbacks!
+
+---
+
 ## ⚡ Quick Launch Command
 To start the project instantly, run these commands in your terminal:
 ```powershell
