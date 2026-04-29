@@ -124,7 +124,7 @@ We built a custom visual language for the map using Leaflet and CSS:
 ### 🎚️ Real-Time Intelligence & Simulation
 - **Dynamic Price Filtering Engine:** A high-performance frontend filter that allows drivers to instantly prune thousands of stations based on price using a live slider, without re-fetching data from the server.
 - **Adaptive Sidebar Architecture:** The "Plan Your Route" UI is a state-aware component that detects when a route is active and collapses itself to maximize the "Command Center" view, while remaining a single click away for route modifications.
-- **Fuel Consumption Simulation:** The backend runs a physics-based simulation of a vehicle with a 500-mile range and 10 MPG. It factors in current fuel levels and predicts precisely when the "Low Fuel" warning (100-mile buffer) would trigger to prioritize safety over savings.
+- **Fuel Consumption Simulation:** The backend runs a physics-based simulation of a vehicle with a 500-mile range and 10 MPG. It factors in current fuel levels and predicts precisely when the "Low Fuel" warning (50-mile buffer) would trigger to prioritize safety over savings.
 - **Smart Autocomplete:** Our geocoding engine is hard-coded with a US-Boundary constraint, ensuring that searches for "Springfield" or "Portland" don't accidentally return results from international locations.
 
 ### 🌓 Professional Dark Mode & Print Sync
@@ -220,8 +220,8 @@ python manage.py runserver
 ## 🧠 The Spotter Algorithm
 
 Spotter's "Brain" operates on a **3-Layer Logic System**:
-1. **Safety Layer:** Forces a stop if fuel range drops below 100 miles.
-2. **Economic Layer:** Projects "Effective Prices" for detours by adding the cost of fuel burned to reach the station.
+1. **Safety Layer:** Forces a stop if fuel range drops below **50 miles** (Safety Buffer).
+2. **Economic Layer:** Projects "Effective Prices" for detours by adding the cost of fuel burned to reach the station (amortized over a 25-gallon heuristic fill).
 3. **Precision Fill Layer:** Calculates the "Safe Fill Buffer" — only buying what you need to reach the next significantly cheaper station safely.
 
 *Built for professional logistics. Optimized for the road.*
