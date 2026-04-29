@@ -177,6 +177,16 @@ Building a platform that synchronizes **Large-Scale Data Analysis** (6,600+ stat
 
 ---
 
+## ⚡ Quick Launch Command
+To start the project instantly, run these commands in your terminal:
+```powershell
+cd d:\Spotter\fuel-route-planner\backend
+.\venv\Scripts\activate
+python manage.py runserver
+```
+
+---
+
 ## 🌐 API Reference & Data Contract
 
 | Endpoint | Method | Input Key | Output Logic |
