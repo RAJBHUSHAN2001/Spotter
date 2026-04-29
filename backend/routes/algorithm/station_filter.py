@@ -33,12 +33,12 @@ def get_stations_near_route(route_points, all_stations, max_distance_miles=20):
     stations_sorted = sorted(stations_with_coords, key=lambda s: s.lat)
     station_lats = [s.lat for s in stations_sorted]
 
-    # 2. Sample route points (every 5 miles is enough for station finding)
-    # ORS returns many points, we only need a subset to find nearby stations
+    # 2. Sample route points (every 10 miles is enough for high-performance filtering)
+    # This reduces bisection search loops by 50% for long routes
     sampled = []
     last_marker = -999
     for p in route_points:
-        if p.cumulative_miles - last_marker >= 5:
+        if p.cumulative_miles - last_marker >= 10:
             sampled.append(p)
             last_marker = p.cumulative_miles
     if route_points and route_points[-1] not in sampled:

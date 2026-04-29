@@ -132,11 +132,13 @@ class RouteView(APIView):
                 return f"{h}h {m}m"
             return f"{m}m"
 
-        # 2. Filter Stations
-        all_stations = list(
-            FuelStation.objects.filter(
-                lat__isnull=False,
-                lon__isnull=False))
+        # 2. Filter Stations (Cached for extreme performance)
+        from django.core.cache import cache
+        all_stations = cache.get('all_fuel_stations')
+        if not all_stations:
+            all_stations = list(FuelStation.objects.filter(lat__isnull=False, lon__isnull=False))
+            cache.set('all_fuel_stations', all_stations, 86400) # Cache for 24 hours
+
         candidate_stations = get_stations_near_route(
             route_points, all_stations)
 
