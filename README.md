@@ -197,6 +197,25 @@ Spotter is engineered for **Zero-Downtime Reliability**. We have implemented a m
 
 ---
 
+## 🧪 Recommended Test Data (For Demo/Audit)
+
+Use these standardized routes to observe the optimization engine's decision-making in different scenarios:
+
+1.  **The "Endurance" Test (Cross-Country Scaling):**
+    *   **Start:** `Portland, OR`
+    *   **End:** `Orlando, FL`
+    *   **Goal:** Demonstrates the **500-mile range logic** across multiple days of travel and shows a high **Market Volatility Index**.
+2.  **The "Mega-Savings" Test (Detour ROI):**
+    *   **Start:** `Chicago, IL`
+    *   **End:** `Dallas, TX`
+    *   **Goal:** Highlights the algorithm's ability to find "Golden" detours that significantly lower the total trip cost compared to a naive strategy.
+3.  **The "Precision" Test (Short-Range Accuracy):**
+    *   **Start:** `Las Vegas, NV`
+    *   **End:** `Phoenix, AZ`
+    *   **Goal:** Perfect for showing the **'Gold Star' cheapest-on-route** marker and the **Active Transit Sync** interactivity.
+
+---
+
 ## ⚡ Quick Launch Command
 To start the project instantly, run these commands in your terminal:
 ```powershell
